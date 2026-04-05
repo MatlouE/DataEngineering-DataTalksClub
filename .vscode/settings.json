@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "sshOptions": {
+                "port": 22
+            },
+            "driver": "PostgreSQL",
+            "name": "ny_taxi_db",
+            "database": "ny_taxi",
+            "username": "root",
+            "password": "root"
+        }
+    ]
+}
