@@ -31,4 +31,4 @@ try:
     print(f"✓ Loaded {len(df_zones)} records into 'zones' table")
 except Exception as e:
     print(f"✗ Failed to load zones: {e}")
-    raise
+raise
