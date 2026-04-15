@@ -27,7 +27,7 @@ SELECT * FROM taxi-rides-ny.nytaxi.external_yellow_tripdata;
 
 -- Impact of partition
 -- Scanning 1.6GB of data
-SELECT DISTINCT(VendorID)
+SELECT DISTINCT(VendorID) 
 FROM taxi-rides-ny.nytaxi.yellow_tripdata_non_partitioned
 WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2019-06-30';
 
