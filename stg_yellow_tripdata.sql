@@ -20,7 +20,7 @@ renamed as (
         cast(trip_distance as numeric) as trip_distance,
 
         -- payment info
-        cast(fare_amount as numeric) as fare_amount,
+        cast(fare_amount as +) as fare_amount,
         cast(extra as numeric) as extra,
         cast(mta_tax as numeric) as mta_tax,
         cast(tip_amount as numeric) as tip_amount,
