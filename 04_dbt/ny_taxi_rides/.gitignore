@@ -1,0 +1,5 @@
+target/
+dbt_packages/
+*.pyc
+*.db
+.DS_Store
