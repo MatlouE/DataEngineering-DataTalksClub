@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+    - name: ny_taxi_rides
+    - description: "Source data for NYC taxi rides, stored in Parquet files."
+    - database: ny_taxi_rides
+    - schema: prod
+    - tables:
+        - name: green_tripdata
+        - name: yellow_tripdata
