@@ -1,9 +1,0 @@
-==================== 2026-04-18T14:29:05.249748Z | 019da0fe-c860-7fa1-8fb7-916a0a0c243b ====================
-14:29:05.249867 [info ]: Installing dbt project and profile setup
-14:29:05.252642 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
-14:29:05.252741 [info ]: Success Project created successfully!
-14:29:05.252774 [info ]: Info Project name: ny_taxi_rides
-14:29:05.252795 [info ]: Info Project directory: ny_taxi_rides
-14:29:05.252816 [info ]: Info Setting up your profile...
-14:29:05.252945 [info ]: Loading ~/.dbt/profiles.yml
-14:29:05.253326 [info ]: Info Creating new profile...

@@ -1,8 +1,0 @@
-version: 2
-
-sources: 
-  - name: raw_data
-    description: "Raw data from the taxi rides in New York"
-    database:
-    schema:
-    tables:
