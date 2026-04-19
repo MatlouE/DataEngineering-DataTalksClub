@@ -31,11 +31,12 @@ renamed as (
         cast(ehail_fee as numeric) as ehail_fee,
         cast(improvement_surcharge as numeric) as improvement_surcharge,
         cast(total_amount as numeric) as total_amount,
-    from source
+        cast(payment_type as numeric) as payment_type
+    from tripdata
     -- Filter out records with null vendor_id (data quality requirement)
     where vendorid is not null
 )
 
-select * from renamed
+select * from renamed limit 5
 
 

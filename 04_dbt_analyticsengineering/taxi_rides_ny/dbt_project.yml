@@ -26,11 +26,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
 models:
   taxi_rides_ny:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+    # This matches your models/staging folder
+    staging:
       +materialized: view
+      +schema: main  # This forces dbt to stay in the 'main' schema
+    
+    # This matches your models/core folder (where your unioned model likely is)
+    core:
+      +materialized: table
+      +schema: main

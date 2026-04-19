@@ -1,4 +1,4 @@
-with sources as (
+with tripdata as (
     select * from {{source('raw_data', 'yellow_tripdata')}}
 ),
 
@@ -18,7 +18,7 @@ renamed as (
         cast(store_and_fwd_flag as string) as store_and_fwd_flag,
         cast(passenger_count as integer) as passenger_count,
         cast(trip_distance as numeric) as trip_distance,
-        1 as trip_type,
+        cast(1 as integer) as trip_type,
 
         -- payment info
         cast(fare_amount as numeric) as fare_amount,
@@ -26,14 +26,14 @@ renamed as (
         cast(mta_tax as numeric) as mta_tax,
         cast(tip_amount as numeric) as tip_amount,
         cast(tolls_amount as numeric) as tolls_amount,
-        0 as ehail_fee,
+        cast(0 as numeric) as ehail_fee, -- yellow doesnt have ehailfee
         cast(improvement_surcharge as numeric) as improvement_surcharge,
         cast(total_amount as numeric) as total_amount,
         cast(payment_type as integer) as payment_type
 
-    from sources
+    from tripdata
     -- Filter out records with null vendor_id (data quality requirement)
     where vendorid is not null
 )
 
-select * from renamed limit 5
+select * from renamed limit 5 
