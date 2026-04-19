@@ -7,3 +7,4 @@ logs/
 data/
 
 *.duckdb
+dbt_internal_packages/
