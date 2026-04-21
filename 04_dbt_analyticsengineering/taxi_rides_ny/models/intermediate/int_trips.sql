@@ -21,10 +21,16 @@ with with_surrogate_key as (
         payment_type, service_type
         -- List all other columns explicitly instead of using *
     from {{ ref('int_trips_unioned') }}
-)
+),
 
-select * from with_surrogate_key
-qualify row_number() over( partition by vendor_id, pickup_datetime, pickup_location_id order by pickup_datetime asc) = 1
+with l as (
+    select * from with_surrogate_key
+    qualify row_number() over( partition by vendor_id, pickup_datetime, pickup_location_id order by pickup_datetime asc) = 1
+),
+
+payment_lookup as (
+    select * from {{ ref('payment_lookup')}}
+)
 
 
 
