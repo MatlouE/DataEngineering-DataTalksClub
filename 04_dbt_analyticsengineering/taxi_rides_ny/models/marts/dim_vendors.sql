@@ -4,9 +4,6 @@ with vendors as (
 )
 
 select vendor_id,
-    case 
-        when vendor_id = 1 then 'Creative Mobile Technologies, LLC'
-        when vendor_id = 2 then 'VeriFone Inc.'
-        else 'Unknown'
-    end as vendor_name
+    
+    {{ get_vendor_data('vendor_id')}} as vendor_name
 from vendors
