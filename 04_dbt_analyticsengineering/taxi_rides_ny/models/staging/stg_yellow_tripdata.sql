@@ -36,4 +36,4 @@ renamed as (
     where vendorid is not null
 )
 
-select * from renamed limit 5 
+select * from renamed 
