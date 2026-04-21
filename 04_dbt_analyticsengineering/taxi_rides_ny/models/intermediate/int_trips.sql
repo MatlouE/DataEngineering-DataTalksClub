@@ -30,6 +30,15 @@ with l as (
 
 payment_lookup as (
     select * from {{ ref('payment_type_lookup')}}
+),
+
+final as (
+    select l.*,
+    -- add payment_description from payment_lookup
+    coalesce(payment_lookup.payment_description, 'Unknown')
+    from l
+    left join payment_lookup
+    on l.payment_type = payment_lookup.payment_type
 )
 
 
