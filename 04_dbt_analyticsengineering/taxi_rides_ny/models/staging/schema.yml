@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: dim_zones
+    description: >
+      Zone lookup table containing LocationID, borough, zone name and service zone.
+      One row per taxi zone in NYC.
+    columns:
+      - name: locationid
+        description: Primary key for taxi zones
+        tests:
+          - unique
+          - not_null
+      
+      - name: borough
+        description: NYC borough name (Manhattan, Queens, Brooklyn, Bronx, Staten Island, EWR)
+      
+      - name: zone
+        description: Taxi zone name/neighborhood
+      
+      - name: service_zone
+        description: Service zone type (Yellow, Green, or Airports)
