@@ -29,7 +29,7 @@ with l as (
 ),
 
 payment_lookup as (
-    select * from {{ ref('payment_lookup')}}
+    select * from {{ ref('payment_type_lookup')}}
 )
 
 
