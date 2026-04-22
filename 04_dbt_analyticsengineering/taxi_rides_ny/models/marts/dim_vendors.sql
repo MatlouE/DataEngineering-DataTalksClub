@@ -4,6 +4,5 @@ with vendors as (
 )
 
 select vendor_id,
-    
     {{ get_vendor_data('vendor_id')}} as vendor_name
 from vendors

@@ -23,7 +23,7 @@ with with_surrogate_key as (
     from {{ ref('int_trips_unioned') }}
 ),
 
-with l as (
+l as (
     select * from with_surrogate_key
     qualify row_number() over( partition by vendor_id, pickup_datetime, pickup_location_id order by pickup_datetime asc) = 1
 ),
@@ -35,11 +35,13 @@ payment_lookup as (
 final as (
     select l.*,
     -- add payment_description from payment_lookup
-    coalesce(payment_lookup.payment_description, 'Unknown')
+    coalesce(payment_lookup.description, 'Unknown') as payment_description
     from l
     left join payment_lookup
     on l.payment_type = payment_lookup.payment_type
 )
+
+select * from final
 
 
 
